@@ -32,6 +32,18 @@ public class Util {
     public static float JFK_LAT = 40.6441666667f;
     public static float JFK_LON = -73.7822222222f;
 
+    public static float STL_LAT = 38.756764f;
+    public static float STL_LON = -90.371850f;
+
+    public static float BIS_LAT = 46.779011f;
+    public static float BIS_LON = -100.757585f;
+
+    public static float TYS_LAT = 35.815776f;
+    public static float TYS_LON = -83.994573f;
+
+    public static float SEA_LAT = 47.455313f;
+    public static float SEA_LON = -122.307664f;
+
 
     public static boolean inIstanbul(float lon, float lat) {
         return inBoundariesOf(lon, lat, boundingBox(IST_LON, IST_LAT, 80f));
@@ -59,6 +71,22 @@ public class Util {
 
     public static boolean inNYC(float lon, float lat) {
         return inBoundariesOf(lon, lat, boundingBox(JFK_LON, JFK_LAT, 80f));
+    }
+
+    public static boolean inStLouis(float lon, float lat) {
+        return inBoundariesOf(lon, lat, boundingBox(STL_LON, STL_LAT, 80f));
+    }
+
+    public static boolean inBismarck(float lon, float lat) {
+        return inBoundariesOf(lon, lat, boundingBox(BIS_LON, BIS_LAT, 80f));
+    }
+
+    public static boolean inKnoxville(float lon, float lat) {
+        return inBoundariesOf(lon, lat, boundingBox(TYS_LON, TYS_LAT, 80f));
+    }
+
+    public static boolean inSeattle(float lon, float lat) {
+        return inBoundariesOf(lon, lat, boundingBox(SEA_LON, SEA_LAT, 80f));
     }
 
     public static double[] boundingBox(float lon, float lat, float radius) {

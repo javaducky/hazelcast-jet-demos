@@ -9,6 +9,7 @@ import com.hazelcast.jet.config.ProcessingGuarantee;
 import com.hazelcast.jet.datamodel.TimestampedEntry;
 import com.hazelcast.jet.demo.Aircraft.VerticalDirection;
 import com.hazelcast.jet.demo.types.WakeTurbulanceCategory;
+import com.hazelcast.jet.demo.util.Util;
 import com.hazelcast.jet.pipeline.Pipeline;
 import com.hazelcast.jet.pipeline.Sink;
 import com.hazelcast.jet.pipeline.Sinks;
@@ -49,12 +50,11 @@ import static com.hazelcast.jet.demo.Constants.typeToLTOCycyleC02Emission;
 import static com.hazelcast.jet.demo.FlightDataSource.flightDataSource;
 import static com.hazelcast.jet.demo.types.WakeTurbulanceCategory.HEAVY;
 import static com.hazelcast.jet.demo.util.Util.inAtlanta;
-import static com.hazelcast.jet.demo.util.Util.inFrankfurt;
-import static com.hazelcast.jet.demo.util.Util.inIstanbul;
+import static com.hazelcast.jet.demo.util.Util.inBismarck;
+import static com.hazelcast.jet.demo.util.Util.inKnoxville;
 import static com.hazelcast.jet.demo.util.Util.inLondon;
 import static com.hazelcast.jet.demo.util.Util.inNYC;
-import static com.hazelcast.jet.demo.util.Util.inParis;
-import static com.hazelcast.jet.demo.util.Util.inTokyo;
+import static com.hazelcast.jet.demo.util.Util.inStLouis;
 import static com.hazelcast.jet.function.DistributedComparator.comparingInt;
 import static com.hazelcast.jet.pipeline.SinkBuilder.sinkBuilder;
 import static java.util.Collections.emptySortedMap;
@@ -304,18 +304,26 @@ public class FlightTelemetry {
     private static String getAirport(float lon, float lat) {
         if (inLondon(lon, lat)) {
             return "London";
-        } else if (inIstanbul(lon, lat)) {
-            return "Istanbul";
-        } else if (inFrankfurt(lon, lat)) {
-            return "Frankfurt";
+//        } else if (inIstanbul(lon, lat)) {
+//            return "Istanbul";
+//        } else if (inFrankfurt(lon, lat)) {
+//            return "Frankfurt";
         } else if (inAtlanta(lon, lat)) {
             return "Atlanta";
-        } else if (inParis(lon, lat)) {
-            return "Paris";
-        } else if (inTokyo(lon, lat)) {
-            return "Tokyo";
+//        } else if (inParis(lon, lat)) {
+//            return "Paris";
+//        } else if (inTokyo(lon, lat)) {
+//            return "Tokyo";
         } else if (inNYC(lon, lat)) {
             return "New York";
+        } else if (inStLouis(lon, lat)) {
+            return "St Louis";
+        } else if (inBismarck(lon, lat)) {
+            return "Bismarck";
+        } else if (inKnoxville(lon, lat)) {
+            return "Knoxville";
+        } else if (Util.inSeattle(lon, lat)) {
+            return "Seattle";
         }
         // unknown city
         return null;
